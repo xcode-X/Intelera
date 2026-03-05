@@ -11,7 +11,7 @@ export default function Services() {
   const [services, setServices] = useState(defaultServicesList);
 
   useEffect(() => {
-    api.get('/services').then(setServices).catch(() => {});
+    api.get('/services').then(setServices).catch(() => { });
   }, []);
 
   return (
@@ -55,9 +55,9 @@ export default function Services() {
       <section className="py-12 bg-white border-b border-stone-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex flex-wrap justify-center gap-x-12 gap-y-4 text-sm text-stone-600">
-            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#0EA5E9]"/> Scoped to your environment</span>
-            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#7C3AED]"/> Actionable reports</span>
-            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#F97316]"/> No long-term lock-in</span>
+            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#0EA5E9]" /> Scoped to your environment</span>
+            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#7C3AED]" /> Actionable reports</span>
+            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#F97316]" /> No long-term lock-in</span>
           </motion.div>
         </div>
       </section>
@@ -75,30 +75,51 @@ export default function Services() {
             <div className="grid lg:grid-cols-2 gap-12 items-start">
               <div>
                 <span className="text-[#0EA5E9] text-sm font-semibold uppercase tracking-wider">Service</span>
-                <h2 className="mt-2 text-2xl sm:text-3xl font-bold text-stone-900" style={{ fontFamily: 'var(--font-display)' }}>
+                <h2 className="mt-2 text-3xl font-bold text-stone-900" style={{ fontFamily: 'var(--font-display)' }}>
                   {s.title}
                 </h2>
-                <p className="mt-4 text-stone-600">{s.shortDescription || s.description}</p>
+                <p className="mt-4 text-stone-600 leading-relaxed">{s.description || s.shortDescription}</p>
+
+                <div className="mt-8">
+                  <h3 className="text-sm font-bold text-stone-900 uppercase tracking-widest mb-3">Target Outcomes</h3>
+                  <div className="bg-[#E0F2FE]/40 border-l-4 border-[#0EA5E9] p-4 rounded-r-xl">
+                    <p className="text-stone-700 italic text-[15px]">{s.outcomes || 'Defined, sustainable security controls and risk reduction.'}</p>
+                  </div>
+                </div>
+
                 {s.features?.length > 0 && (
-                  <ul className="mt-6 space-y-2">
-                    {s.features.map((f, i) => (
-                      <li key={i} className="flex items-center gap-2 text-stone-600">
-                        <span className="text-[#7C3AED] font-bold">✓</span> {f}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="mt-8">
+                    <h3 className="text-sm font-bold text-stone-900 uppercase tracking-widest mb-4">What's Included</h3>
+                    <ul className="grid sm:grid-cols-2 gap-3">
+                      {s.features.map((f, i) => (
+                        <li key={i} className="flex items-start gap-2 text-stone-600 text-[15px]">
+                          <span className="text-[#7C3AED] font-bold mt-0.5">✓</span>
+                          <span>{f}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
+
+                <div className="mt-10">
+                  <Link to="/contact" className="inline-flex items-center gap-2 text-[#F97316] font-bold hover:gap-3 transition-all underline decoration-2 underline-offset-4">
+                    Inquire about this service
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
               </div>
+
               {s.process?.length > 0 && (
-                <div className="bg-stone-50 rounded-2xl p-6 border border-stone-200/80 shadow-[var(--shadow-card)]">
-                  <h3 className="font-semibold text-stone-900 mb-4">Process</h3>
-                  <div className="space-y-4">
+                <div className="bg-white rounded-2xl p-8 border border-stone-200/80 shadow-[var(--shadow-card)] sticky top-32">
+                  <h3 className="font-bold text-stone-900 mb-6 text-lg" style={{ fontFamily: 'var(--font-display)' }}>Methodology</h3>
+                  <div className="space-y-6 relative">
+                    <div className="absolute left-[17px] top-2 bottom-2 w-0.5 bg-stone-100" />
                     {s.process.map((p) => (
-                      <div key={p.step} className="flex gap-4">
-                        <span className="w-9 h-9 rounded-xl bg-[#0EA5E9]/15 text-[#0EA5E9] font-bold flex items-center justify-center text-sm">{p.step}</span>
+                      <div key={p.step} className="flex gap-4 relative z-10">
+                        <span className="w-9 h-9 rounded-full bg-stone-900 text-white font-bold flex items-center justify-center text-xs shrink-0">{p.step}</span>
                         <div>
-                          <span className="font-medium text-stone-900">{p.title}</span>
-                          <p className="text-sm text-stone-500">{p.description}</p>
+                          <span className="font-bold text-stone-900 block">{p.title}</span>
+                          <p className="text-sm text-stone-500 mt-1 leading-relaxed">{p.description}</p>
                         </div>
                       </div>
                     ))}
@@ -181,8 +202,16 @@ export function ServiceDetail() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-[var(--spacing-block)]">
         {(item.description || item.shortDescription) && (
           <section className="mb-12">
-            <h2 className="text-xl font-semibold text-stone-900 mb-4">Overview</h2>
-            <p className="text-stone-600">{item.description || item.shortDescription}</p>
+            <h2 className="text-xl font-bold text-stone-900 mb-4" style={{ fontFamily: 'var(--font-display)' }}>Overview</h2>
+            <p className="text-stone-600 leading-relaxed">{item.description || item.shortDescription}</p>
+          </section>
+        )}
+        {item.outcomes && (
+          <section className="mb-12">
+            <h2 className="text-sm font-bold text-stone-900 uppercase tracking-widest mb-4">Target Outcomes</h2>
+            <div className="bg-[#E0F2FE]/40 border-l-4 border-[#0EA5E9] p-6 rounded-r-2xl">
+              <p className="text-stone-800 italic text-lg leading-relaxed">{item.outcomes}</p>
+            </div>
           </section>
         )}
         {item.features?.length > 0 && (

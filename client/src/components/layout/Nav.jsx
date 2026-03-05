@@ -27,7 +27,7 @@ export default function Nav() {
   }, []);
 
   useEffect(() => {
-    api.get('/services').then(setServices).catch(() => {});
+    api.get('/services').then(setServices).catch(() => { });
   }, []);
 
   return (
@@ -36,9 +36,8 @@ export default function Nav() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ type: 'spring', stiffness: 80, damping: 18 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-white/90 backdrop-blur-md py-3 shadow-sm border-b border-stone-200/60' : 'bg-transparent py-5'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-md py-3 shadow-sm border-b border-stone-200/60' : 'bg-transparent py-5'
+          }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
@@ -126,7 +125,12 @@ export default function Nav() {
             >
               Get Consultation
             </Link>
-            <Link to="/admin" className="text-stone-500 hover:text-stone-800 text-sm">Admin</Link>
+            <Link
+              to="/admin"
+              className="text-stone-500 hover:text-[#0EA5E9] text-xs font-semibold uppercase tracking-widest px-3 py-1.5 rounded-lg border border-transparent hover:border-[#0EA5E9]/20 hover:bg-[#E0F2FE]/30 transition"
+            >
+              Admin
+            </Link>
             <button
               type="button"
               className="md:hidden p-2 text-stone-700"

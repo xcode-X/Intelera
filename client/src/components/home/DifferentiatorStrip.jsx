@@ -10,9 +10,11 @@ const points = [
 
 export default function DifferentiatorStrip() {
   return (
-    <section className="py-16 bg-[#1E293B] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[300px] rounded-[100%_0_0_0_/100%_0_0_0] bg-[#0EA5E9]/10" />
-      <div className="absolute bottom-0 left-0 w-64 h-64 rounded-[0_0_100%_0_/0_0_100%_0] bg-[#7C3AED]/10" />
+    <section className="py-20 bg-stone-900 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-[0.08]">
+        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '24px 24px' }} />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] rounded-full bg-[#0EA5E9] blur-[120px] -translate-x-1/2 translate-y-1/2" />
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -45,7 +47,7 @@ export default function DifferentiatorStrip() {
           </ul>
           <Link
             to="/contact"
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#F97316] text-white font-semibold hover:bg-[#EA580C] transition"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#F97316] text-white font-semibold hover:bg-[#EA580C] transition glow-orange"
           >
             Talk to us
             <ArrowRight className="w-4 h-4" strokeWidth={2} />

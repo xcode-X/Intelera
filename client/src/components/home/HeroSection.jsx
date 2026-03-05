@@ -39,7 +39,7 @@ export default function HeroSection() {
               style={{ fontFamily: 'var(--font-display)' }}
             >
               Intelligent Security.{' '}
-              <span className="text-[#7C3AED]">Engineered</span>
+              <span className="gradient-text">Engineered</span>
               <br />
               Digital Power.
             </motion.h1>
@@ -67,7 +67,7 @@ export default function HeroSection() {
             >
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#F97316] text-white font-semibold text-base hover:bg-[#EA580C] transition shadow-lg shadow-orange-200/40 hover:shadow-orange-300/50"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[#F97316] text-white font-semibold text-base hover:bg-[#EA580C] transition glow-orange"
               >
                 Get Free Security Consultation
                 <ArrowRight className="w-5 h-5" strokeWidth={2} />
@@ -91,7 +91,7 @@ export default function HeroSection() {
             <div className="relative max-w-[640px] xl:max-w-[720px] ml-auto w-full">
               {/* Decorative frame / shadow */}
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-[#0EA5E9]/20 to-[#7C3AED]/20 opacity-60" />
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-stone-200/50">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-stone-200/50 bg-stone-100">
                 <div className="aspect-[4/3] min-h-[380px] xl:min-h-[440px] relative">
                   <img
                     src={heroImage}
@@ -99,20 +99,13 @@ export default function HeroSection() {
                     className="absolute inset-0 w-full h-full object-cover"
                     loading="eager"
                   />
-                  {/* Fill color overlay — brand tint so image blends with section */}
+                  {/* Softer overlay that ensures visibility */}
                   <div
-                    className="absolute inset-0 mix-blend-multiply"
-                    style={{
-                      background: 'linear-gradient(135deg, rgba(14, 165, 233, 0.35) 0%, rgba(124, 58, 237, 0.25) 100%)',
-                    }}
+                    className="absolute inset-0 bg-stone-900/10 pointer-events-none"
                     aria-hidden
                   />
-                  {/* Optional: subtle vignette at edges */}
                   <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      boxShadow: 'inset 0 0 80px 20px rgba(255,255,255,0.08)',
-                    }}
+                    className="absolute inset-0 bg-gradient-to-tr from-[#0EA5E9]/10 via-transparent to-[#7C3AED]/10 mix-blend-overlay pointer-events-none"
                     aria-hidden
                   />
                 </div>

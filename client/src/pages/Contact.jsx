@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import api from '../lib/api';
 import { contactImage } from '../lib/siteImages';
+import MonroviaMap from '../components/lead/MonroviaMap';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', company: '', phone: '', subject: '', message: '' });
@@ -38,9 +39,9 @@ export default function Contact() {
           </motion.h1>
           <p className="mt-4 text-stone-600 max-w-xl">Schedule a confidential consultation, request a quote, or ask a question. We typically respond within one business day.</p>
           <div className="mt-8 flex flex-wrap gap-6 text-sm text-stone-500">
-            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#0EA5E9]"/> Monrovia, Liberia</span>
-            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#7C3AED]"/> Response within 24 hours</span>
-            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#F97316]"/> No obligation</span>
+            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#0EA5E9]" /> Monrovia, Liberia</span>
+            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#7C3AED]" /> Response within 24 hours</span>
+            <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-[#F97316]" /> No obligation</span>
           </div>
         </div>
       </section>
@@ -121,9 +122,8 @@ export default function Contact() {
                   <li className="flex gap-3"><span className="text-[#0EA5E9] font-bold">3.</span> We propose an approach and quote—no obligation to proceed.</li>
                 </ol>
               </div>
-              <div className="aspect-[4/3] rounded-xl bg-stone-200 flex items-center justify-center text-stone-500 text-sm">
-                Map placeholder (embed Google Map URL here)
-              </div>
+              <MonroviaMap />
+
             </motion.div>
           </div>
         </div>

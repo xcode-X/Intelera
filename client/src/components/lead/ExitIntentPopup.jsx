@@ -30,7 +30,7 @@ export default function ExitIntentPopup() {
   const close = () => {
     setShow(false);
     setDismissed(true);
-    try { localStorage.setItem('intelera_exit_dismissed', '1'); } catch (_) {}
+    try { localStorage.setItem('intelera_exit_dismissed', '1'); } catch (_) { }
   };
 
   return (
@@ -85,7 +85,7 @@ export default function ExitIntentPopup() {
                   <Link
                     to="/contact"
                     onClick={close}
-                    className="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-[var(--radius-button)] bg-[#F97316] text-white font-semibold text-[15px] hover:bg-[#EA580C] transition-colors shadow-lg shadow-orange-200/40"
+                    className="flex items-center justify-center gap-2 w-full py-3.5 px-5 rounded-[var(--radius-button)] bg-[#F97316] text-white font-semibold text-[15px] hover:bg-[#EA580C] transition shadow-lg glow-orange"
                   >
                     Schedule free consultation
                     <ArrowRight className="w-4 h-4" strokeWidth={2.2} />

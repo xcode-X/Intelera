@@ -9,10 +9,11 @@ const stats = [
 
 export default function TrustBar() {
   return (
-    <section className="py-12 bg-stone-900 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-[#0EA5E9]" />
-        <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full bg-[#7C3AED]" />
+    <section className="py-16 bg-stone-900 relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-0 left-1/4 w-[500px] h-[500px] rounded-full bg-[#0EA5E9] blur-[120px] -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] rounded-full bg-[#7C3AED] blur-[120px] translate-x-1/2 translate-y-1/2" />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div

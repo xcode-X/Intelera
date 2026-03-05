@@ -91,7 +91,7 @@ export function BlogList() {
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-xl font-bold text-stone-900" style={{ fontFamily: 'var(--font-display)' }}>Stay updated</h2>
           <p className="mt-3 text-stone-600">Get new posts and security insights in your inbox. No spam—unsubscribe anytime.</p>
-          <Link to="/contact" className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#7C3AED] text-white font-semibold hover:bg-[#6D28D9] transition">
+          <Link to="/contact" className="mt-6 inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#F97316] text-white font-semibold hover:bg-[#EA580C] transition glow-orange">
             Subscribe to newsletter
           </Link>
         </div>

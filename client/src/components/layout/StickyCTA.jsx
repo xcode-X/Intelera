@@ -13,7 +13,7 @@ export default function StickyCTA() {
       <Link
         to="/contact"
         aria-label="Free Security Consultation"
-        className="flex items-center gap-2 px-5 py-3 rounded-full bg-[#F97316] text-white font-semibold text-sm shadow-lg shadow-orange-300/40 hover:shadow-orange-400/50 transition hover:scale-105 active:scale-100"
+        className="flex items-center gap-2 px-5 py-3 rounded-full bg-[#F97316] text-white font-semibold text-sm shadow-lg hover:shadow-xl transition hover:scale-105 active:scale-100 glow-orange"
       >
         <span>Free Security Consultation</span>
         <ArrowRight className="w-4 h-4" strokeWidth={2} />

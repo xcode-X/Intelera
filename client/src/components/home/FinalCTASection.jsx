@@ -37,7 +37,7 @@ export default function FinalCTASection() {
         >
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-10 py-5 rounded-[var(--radius-button)] bg-[#F97316] text-white font-bold text-lg hover:bg-[#EA580C] transition shadow-lg shadow-orange-200/50 hover:shadow-orange-300/50"
+            className="inline-flex items-center gap-2 px-10 py-5 rounded-[var(--radius-button)] bg-[#F97316] text-white font-bold text-lg hover:bg-[#EA580C] transition glow-orange"
           >
             Schedule Confidential Consultation
             <ArrowRight className="w-5 h-5" strokeWidth={2} />
